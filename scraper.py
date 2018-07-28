@@ -18,7 +18,7 @@ def compilePapers():
 """
 
 linkList = []
-for x in range(35000, 1000000):
+for x in range(10000):
     linkList.append("https://papers.ssrn.com/sol3/papers.cfm?abstract_id=" + str(x))
 
 paperList = []
@@ -44,7 +44,7 @@ def getPaper(url):
         return(None)
 
 
-if __name__ == "__main__":
+def scrape():
     numWorkers = cpu_count() * 8
     print(numWorkers)
     p = Pool(numWorkers)
@@ -62,5 +62,9 @@ if __name__ == "__main__":
     f.close()
 
     print("Whew! Done with that!")
+
+
+if __name__ == "__main__":
+    scrape()
 
 # for 3500: 560 seconds with 8 workers, 287 with 32, 309 with 40, 325 with 64

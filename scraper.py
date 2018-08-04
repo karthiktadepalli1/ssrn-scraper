@@ -40,6 +40,7 @@ def getPaper(url):
         if article is not None:
             if error not in article.get_text() and article.find('h1') is not None:
                 title = article.find('h1').get_text()
+                title = title.replace(",", "")
                 return(url + "," + title)
     except Exception as e:
         return(None)

@@ -59,9 +59,8 @@ def scrape():
         if paper is not None:
             writePapers.append(paper)
     writeString = "\n".join(writePapers)
-    f = open('threadedData.csv', 'a')
-    f.write(writeString)
-    f.close()
+    with open('ssrn-links.csv', 'w+') as f:
+        f.write(writeString)
 
     print("Whew! Done with that!")
 

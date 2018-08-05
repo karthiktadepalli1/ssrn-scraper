@@ -18,8 +18,9 @@ def compilePapers():
 """
 
 linkList = []
-for x in range(10000):
+for x in range(100000):
     linkList.append("https://papers.ssrn.com/sol3/papers.cfm?abstract_id=" + str(x))
+counter = 0
 
 
 def quickSoup(url):
@@ -42,6 +43,7 @@ def getPaper(url):
                 title = article.find('h1').get_text()
                 title = title.replace(",", "")
                 return(url + "," + title)
+        print(url)
     except Exception as e:
         return(None)
 
@@ -66,6 +68,9 @@ def scrape():
 
 
 if __name__ == "__main__":
+    linkList = []
+    for x in range(100000):
+        linkList.append("https://papers.ssrn.com/sol3/papers.cfm?abstract_id=" + str(x))
     scrape()
 
 # for 3500: 560 seconds with 8 workers, 287 with 32, 309 with 40, 325 with 64
